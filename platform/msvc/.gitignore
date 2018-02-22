@@ -1,0 +1,5 @@
+stat/
+projects/*
+
+!projects/stat.vcxproj
+!projects/stat.vcxproj.filters
