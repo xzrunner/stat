@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\StatImages.cpp" />
+    <ClCompile Include="..\..\..\source\StatOverdraw.cpp" />
     <ClCompile Include="..\..\..\source\StatPingPong.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\stat\StatImages.h" />
+    <ClInclude Include="..\..\..\include\stat\StatOverdraw.h" />
     <ClInclude Include="..\..\..\include\stat\StatPingPong.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
