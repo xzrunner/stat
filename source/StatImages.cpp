@@ -2,6 +2,7 @@
 
 #include <unirender/RenderContext.h>
 #include <unirender/typedef.h>
+#include <shaderlab/Blackboard.h>
 #include <shaderlab/ShaderMgr.h>
 
 #include <assert.h>
@@ -97,8 +98,8 @@ int StatImages::GetTexBPP(int type)
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 8;
 #elif defined _WIN32 || defined __ANDROID__
-		ur::RenderContext* rc = sl::ShaderMgr::Instance()->GetContext();
-		if (rc->IsSupportETC2()) {
+		ur::RenderContext& ur_rc = sl::Blackboard::Instance()->GetShaderMgr()->GetContext();
+		if (ur_rc.IsSupportETC2()) {
 			bpp = 8;
 		} else {
 			bpp = 16;
