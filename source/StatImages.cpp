@@ -67,7 +67,7 @@ void StatImages::Print(CU_STR& str) const
 {
 	static char buf[512];
 
-	sprintf(buf, "Images: n %d, mem %.1f, nmax %d\n", 
+	sprintf(buf, "Images: n %d, mem %.1f, nmax %d\n",
 		m_count, m_memory, m_4096_count);
 	str += buf;
 }

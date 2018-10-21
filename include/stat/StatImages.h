@@ -12,7 +12,7 @@ public:
 	void Add(int id, int width, int height, int type);
 	void Remove(int id, int width, int height, int type);
 
-	void Print(CU_STR& str) const;	
+	void Print(CU_STR& str) const;
 
 	const CU_MAP<int, float>& GetID2Mem() const { return m_id2mem; }
 
