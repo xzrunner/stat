@@ -3,8 +3,6 @@
 #include <unirender/RenderContext.h>
 #include <unirender/Blackboard.h>
 #include <unirender/typedef.h>
-#include <shaderlab/Blackboard.h>
-#include <shaderlab/RenderContext.h>
 
 #include <assert.h>
 #include <math.h>
