@@ -53,12 +53,13 @@ void StatImages::Remove(int id, int width, int height, int type)
 		--m_4096_count;
 	}
 
-	CU_MAP<int, float>::iterator itr = m_id2mem.find(id);
-	assert(itr != m_id2mem.end());
-	itr->second -= mem;
-	if (fabs(itr->second) < FLT_EPSILON) {
-		m_id2mem.erase(itr);
-	}
+	auto itr = m_id2mem.find(id);
+    if (itr != m_id2mem.end()) {
+        itr->second -= mem;
+        if (fabs(itr->second) < FLT_EPSILON) {
+            m_id2mem.erase(itr);
+        }
+    }
 }
 
 void StatImages::Print(CU_STR& str) const
