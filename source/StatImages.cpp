@@ -1,8 +1,6 @@
 #include "stat/StatImages.h"
 
-#include <unirender/RenderContext.h>
-#include <unirender/Blackboard.h>
-#include <unirender/typedef.h>
+#include <unirender2/TextureFormat.h>
 
 #include <assert.h>
 #include <math.h>
@@ -74,36 +72,36 @@ void StatImages::Print(CU_STR& str) const
 int StatImages::GetTexBPP(int type)
 {
 	int bpp = 0;
-	switch (type)
+	switch (static_cast<ur2::TextureFormat>(type))
 	{
-	case ur::TEXTURE_RGBA4:
+    case ur2::TextureFormat::RGBA4:
 		bpp = 16;
 		break;
-	case ur::TEXTURE_RGBA8:
+	case ur2::TextureFormat::RGBA8:
 		bpp = 32;
 		break;
-	case ur::TEXTURE_PVR2:
+	case ur2::TextureFormat::PVR2:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 2;
 #endif
 		break;
-	case ur::TEXTURE_PVR4:
+	case ur2::TextureFormat::PVR4:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 4;
 #else
 		bpp = 32;
 #endif
 		break;
-	case ur::TEXTURE_ETC2:
+	case ur2::TextureFormat::ETC2:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 8;
 #elif defined _WIN32 || defined __ANDROID__
-		auto& ur_rc = ur::Blackboard::Instance()->GetRenderContext();
-		if (ur_rc.IsSupportETC2()) {
-			bpp = 8;
-		} else {
-			bpp = 16;
-		}
+		//auto& ur_rc = ur::Blackboard::Instance()->GetRenderContext();
+		//if (ur_rc.IsSupportETC2()) {
+		//	bpp = 8;
+		//} else {
+		//	bpp = 16;
+		//}
 #else
 		bpp = 32;
 #endif // __ANDROID__
