@@ -1,6 +1,6 @@
 #include "stat/StatImages.h"
 
-#include <unirender2/TextureFormat.h>
+#include <unirender/TextureFormat.h>
 
 #include <assert.h>
 #include <math.h>
@@ -72,27 +72,27 @@ void StatImages::Print(CU_STR& str) const
 int StatImages::GetTexBPP(int type)
 {
 	int bpp = 0;
-	switch (static_cast<ur2::TextureFormat>(type))
+	switch (static_cast<ur::TextureFormat>(type))
 	{
-    case ur2::TextureFormat::RGBA4:
+    case ur::TextureFormat::RGBA4:
 		bpp = 16;
 		break;
-	case ur2::TextureFormat::RGBA8:
+	case ur::TextureFormat::RGBA8:
 		bpp = 32;
 		break;
-	case ur2::TextureFormat::PVR2:
+	case ur::TextureFormat::PVR2:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 2;
 #endif
 		break;
-	case ur2::TextureFormat::PVR4:
+	case ur::TextureFormat::PVR4:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 4;
 #else
 		bpp = 32;
 #endif
 		break;
-	case ur2::TextureFormat::ETC2:
+	case ur::TextureFormat::ETC2:
 #if defined( __APPLE__ ) && !defined(__MACOSX)
 		bpp = 8;
 #elif defined _WIN32 || defined __ANDROID__
